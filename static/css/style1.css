@@ -1,0 +1,378 @@
+/* =========================
+   Reset
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Vazirmatn, Tahoma, sans-serif;
+    background: #080a0f;
+    color: #f5f7fa;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   Detail Page
+========================= */
+
+.detail-page {
+    min-height: 100vh;
+    padding: 60px 20px;
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(70, 90, 140, 0.18),
+            transparent 40%
+        ),
+        #080a0f;
+}
+
+.detail-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   Header
+========================= */
+
+.detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.currency-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.currency-title h1 {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.currency-title span {
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #9da5b4;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   Back Button
+========================= */
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+
+    color: #aeb6c4;
+    background: rgba(255, 255, 255, 0.035);
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.back-button:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+
+/* =========================
+   Main Price
+========================= */
+
+.main-price-card {
+    position: relative;
+    overflow: hidden;
+
+    padding: 45px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.075),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+    backdrop-filter: blur(18px);
+
+    margin-bottom: 20px;
+}
+
+.main-price-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    top: -140px;
+    right: -80px;
+
+    background: rgba(75, 110, 255, 0.14);
+
+    filter: blur(70px);
+
+    pointer-events: none;
+}
+
+.label {
+    display: block;
+
+    color: #8d96a6;
+
+    font-size: 14px;
+
+    margin-bottom: 12px;
+}
+
+.main-price {
+    font-size: clamp(38px, 7vw, 68px);
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.2;
+}
+
+.main-price span {
+    font-size: 17px;
+    font-weight: 500;
+    color: #8f98a8;
+    letter-spacing: 0;
+}
+
+
+/* =========================
+   Price Change
+========================= */
+
+.price-change {
+    margin-top: 18px;
+}
+
+.price-change span {
+    display: inline-block;
+
+    padding: 7px 12px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+/* =========================
+   Buy / Sell
+========================= */
+
+.price-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+.info-card {
+    padding: 28px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-3px);
+
+    background: rgba(255, 255, 255, 0.055);
+
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.info-card span {
+    display: block;
+
+    color: #8e97a7;
+
+    font-size: 14px;
+
+    margin-bottom: 14px;
+}
+
+.info-card strong {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.info-card small {
+    color: #858e9e;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+
+/* =========================
+   Statistics
+========================= */
+
+.stats-card {
+    padding: 30px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.stats-card h2 {
+    font-size: 18px;
+    font-weight: 700;
+
+    margin-bottom: 25px;
+}
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.stats-grid > div {
+    padding: 22px 15px;
+
+    border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.stats-grid > div:last-child {
+    border-left: none;
+}
+
+.stats-grid span {
+    display: block;
+
+    color: #858e9e;
+
+    font-size: 13px;
+
+    margin-bottom: 10px;
+}
+
+.stats-grid strong {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 700px) {
+
+    .detail-page {
+        padding: 30px 15px;
+    }
+
+    .detail-header {
+        align-items: flex-start;
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+
+    .currency-title h1 {
+        font-size: 24px;
+    }
+
+    .main-price-card {
+        padding: 30px 24px;
+    }
+
+    .main-price {
+        font-size: 42px;
+    }
+
+    .price-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-grid > div:nth-child(2) {
+        border-left: none;
+    }
+
+    .stats-grid > div:nth-child(3),
+    .stats-grid > div:nth-child(4) {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+}
+.price-change .positive {
+    color: #35d07f;
+    background: rgba(53, 208, 127, 0.1);
+    border: 1px solid rgba(53, 208, 127, 0.15);
+}
+
+.price-change .negative {
+    color: #ff5c6c;
+    background: rgba(255, 92, 108, 0.1);
+    border: 1px solid rgba(255, 92, 108, 0.15);
+}
+
+.price-change .neutral {
+    color: #9da5b4;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}

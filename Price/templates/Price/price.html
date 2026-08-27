@@ -1,0 +1,165 @@
+{% load static %}
+{% load price_filters %}
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>نرخینو | قیمت لحظه‌ای</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <a href="#" class="logo">
+            <span class="logo-mark">N</span>
+            <span>نرخینو</span>
+        </a>
+
+        <div class="market-status">
+            <span class="status-dot"></span>
+            بازار لحظه‌ای
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    بازارهای مالی
+                </span>
+
+                <h1>
+                    قیمت‌ها را
+                    <span>لحظه‌ای</span>
+                    دنبال کن.
+                </h1>
+
+                <p>
+                    آخرین قیمت ارزها را سریع، ساده و دقیق مشاهده کنید.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="market-section">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>ارزها</h2>
+                    <p>قیمت لحظه‌ای بازار</p>
+                </div>
+
+                <div class="update">
+                    <span class="update-dot"></span>
+                    به‌روزرسانی لحظه‌ای
+                </div>
+
+            </div>
+
+
+            <div class="price-grid">
+
+                {% for price in prices %}
+
+                <a href="{% url "price_detail" price.symbol %}" class="price-card">
+
+                    <div class="card-header">
+
+                        <div class="asset">
+
+                            <div class="asset-icon">
+                                {{ price.symbol|slice:":1"|upper }}
+                            </div>
+
+                            <div>
+                                <h3>{{ price.name }}</h3>
+                                <span>{{ price.symbol|upper }}</span>
+                            </div>
+
+                        </div>
+
+                        <div class="arrow">
+                            ←
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-price">
+
+                        <span class="price-number">
+                            {{ price.latest|price_format }}
+                        </span>
+
+                        <span class="currency">
+                            تومان
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-footer">
+
+                        <span class="change-label">
+                            تغییرات ۲۴ ساعت
+                        </span>
+
+                        {% if price.dayChange|floatformat:2 >= "0" %}
+
+                            <span class="change positive">
+                                +{{ price.dayChange }}%
+                            </span>
+
+                        {% else %}
+
+                            <span class="change negative">
+                                {{ price.dayChange }}%
+                            </span>
+
+                        {% endif %}
+
+                    </div>
+
+                </a>
+
+                {% empty %}
+
+                    <div class="empty">
+                        ارزی برای نمایش وجود ندارد.
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            نرخینو © ۲۰۲۶
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

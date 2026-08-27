@@ -1,0 +1,640 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --background: #07090d;
+    --surface: #0d1118;
+    --surface-hover: #111722;
+    --border: rgba(255, 255, 255, 0.07);
+
+    --text: #f4f7fb;
+    --muted: #858d9b;
+
+    --accent: #7c5cff;
+    --accent-light: #9b83ff;
+
+    --positive: #25d695;
+    --negative: #ff5c72;
+}
+
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% -20%,
+            rgba(124, 92, 255, 0.15),
+            transparent 40%
+        ),
+        var(--background);
+
+    color: var(--text);
+
+    font-family: "Vazirmatn", sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ---------------- Navbar ---------------- */
+
+.navbar {
+
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    max-width: 1280px;
+
+    margin: auto;
+    padding: 0 28px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.logo {
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+.logo-mark {
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent-light)
+    );
+
+    color: white;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 30px rgba(124, 92, 255, 0.3);
+}
+
+
+.market-status {
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+.status-dot {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--positive);
+
+    box-shadow:
+        0 0 12px rgba(37, 214, 149, 0.7);
+}
+
+
+/* ---------------- Container ---------------- */
+
+.container {
+
+    max-width: 1180px;
+
+    margin: auto;
+
+    padding: 80px 28px 60px;
+}
+
+
+/* ---------------- Hero ---------------- */
+
+.hero {
+
+    margin-bottom: 85px;
+}
+
+
+.eyebrow {
+
+    display: inline-block;
+
+    margin-bottom: 20px;
+
+    padding: 7px 14px;
+
+    border: 1px solid rgba(124, 92, 255, 0.25);
+
+    border-radius: 100px;
+
+    background: rgba(124, 92, 255, 0.08);
+
+    color: var(--accent-light);
+
+    font-size: 12px;
+}
+
+
+.hero h1 {
+
+    max-width: 720px;
+
+    font-size: clamp(42px, 6vw, 76px);
+
+    line-height: 1.25;
+
+    letter-spacing: -2px;
+
+    font-weight: 800;
+}
+
+
+.hero h1 span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #8f78ff,
+            #c0b4ff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.hero p {
+
+    margin-top: 24px;
+
+    color: var(--muted);
+
+    font-size: 16px;
+
+    line-height: 2;
+}
+
+
+/* ---------------- Section ---------------- */
+
+.market-section {
+    width: 100%;
+}
+
+
+.section-header {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+
+.section-header h2 {
+
+    font-size: 26px;
+
+    font-weight: 700;
+}
+
+
+.section-header p {
+
+    margin-top: 5px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+.update {
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+.update-dot {
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--positive);
+}
+
+
+/* ---------------- Grid ---------------- */
+
+.price-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+
+/* ---------------- Card ---------------- */
+
+.price-card {
+
+    position: relative;
+
+    padding: 25px;
+
+    min-height: 205px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.035),
+            rgba(255, 255, 255, 0.012)
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+
+}
+
+
+.price-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -100px;
+    left: -70px;
+
+    background: rgba(124, 92, 255, 0.08);
+
+    filter: blur(50px);
+
+    pointer-events: none;
+}
+
+
+.price-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(124, 92, 255, 0.35);
+
+    background: var(--surface-hover);
+}
+
+
+/* ---------------- Card Header ---------------- */
+
+.card-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.asset {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+
+.asset-icon {
+
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background:
+        rgba(124, 92, 255, 0.12);
+
+    border:
+        1px solid rgba(124, 92, 255, 0.15);
+
+    color: var(--accent-light);
+
+    font-weight: 700;
+}
+
+
+.asset h3 {
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+
+.asset span {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    direction: ltr;
+}
+
+
+.arrow {
+
+    color: #555d6b;
+
+    font-size: 18px;
+
+    transition: 0.25s;
+}
+
+
+.price-card:hover .arrow {
+
+    color: var(--accent-light);
+
+    transform: translateX(-4px);
+}
+
+
+/* ---------------- Price ---------------- */
+
+.card-price {
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 8px;
+
+    direction: rtl;
+}
+
+
+.price-number {
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+}
+
+
+.currency {
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+/* ---------------- Footer ---------------- */
+
+.card-footer {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding-top: 17px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.change-label {
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+.change {
+
+    direction: ltr;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.positive {
+
+    color: var(--positive);
+}
+
+
+.negative {
+
+    color: var(--negative);
+}
+
+
+/* ---------------- Empty ---------------- */
+
+.empty {
+
+    grid-column: 1 / -1;
+
+    padding: 60px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    border: 1px dashed var(--border);
+
+    border-radius: 20px;
+}
+
+
+/* ---------------- Footer ---------------- */
+
+footer {
+
+    max-width: 1180px;
+
+    margin: auto;
+
+    padding: 30px 28px;
+
+    border-top: 1px solid var(--border);
+
+    color: #555d6b;
+
+    font-size: 12px;
+}
+
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 900px) {
+
+    .price-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+
+        height: 70px;
+
+        padding: 0 18px;
+    }
+
+
+    .container {
+
+        padding:
+            55px 18px 45px;
+    }
+
+
+    .hero {
+
+        margin-bottom: 55px;
+    }
+
+
+    .hero h1 {
+
+        font-size: 43px;
+
+        letter-spacing: -1px;
+    }
+
+
+    .hero p {
+
+        font-size: 14px;
+    }
+
+
+    .price-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+
+    .price-card {
+
+        min-height: 190px;
+
+        padding: 21px;
+    }
+
+
+    .section-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+
+    .market-status {
+
+        display: none;
+    }
+
+}

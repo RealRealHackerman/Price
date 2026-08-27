@@ -1,0 +1,128 @@
+{% load static %}
+{% load price_filters %}
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ currency.name }} | قیمت</title>
+
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+
+<body>
+
+    <main class="detail-page">
+
+        <div class="detail-container">
+
+            <!-- Header -->
+            <div class="detail-header">
+
+                <a href="{% url 'price' %}" class="back-button">
+                    ← بازگشت
+                </a>
+
+                <div class="currency-title">
+                    <h1>{{ currency.name }}</h1>
+                    <span>{{ currency.symbol|upper }}</span>
+                </div>
+
+            </div>
+
+
+            <!-- Main Price -->
+            <section class="main-price-card">
+
+                <span class="label">
+                    قیمت فعلی
+                </span>
+
+                <div class="main-price">
+                    {{ price.latest|price_format }}
+                    <span>تومان</span>
+                </div>
+
+            <div class="price-change">
+                <span class="{{ price.dayChange|change_class }}">
+                    {{ price.dayChange|change_sign }}%
+                </span>
+            </div>
+
+            </section>
+
+
+            <!-- Buy / Sell -->
+            <section class="price-grid">
+
+                <div class="info-card">
+                    <span>بهترین قیمت خرید</span>
+
+                    <strong>
+                        {{ price.bestBuy|price_format }}
+                        <small>تومان</small>
+                    </strong>
+                </div>
+
+
+                <div class="info-card">
+                    <span>بهترین قیمت فروش</span>
+
+                    <strong>
+                        {{ price.bestSell|price_format }}
+                        <small>تومان</small>
+                    </strong>
+                </div>
+
+            </section>
+
+
+            <!-- Daily Statistics -->
+            <section class="stats-card">
+
+                <h2>آمار امروز</h2>
+
+                <div class="stats-grid">
+
+                    <div>
+                        <span>کمترین قیمت</span>
+                        <strong>
+                            {{ price.dayLow|price_format }}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>بیشترین قیمت</span>
+                        <strong>
+                            {{ price.dayHigh|price_format }}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>قیمت شروع</span>
+                        <strong>
+                            {{ price.dayOpen|price_format }}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>قیمت پایانی</span>
+                        <strong>
+                            {{ price.dayClose|price_format }}
+                        </strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
